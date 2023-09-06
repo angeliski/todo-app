@@ -26,6 +26,15 @@ Para isso, vamos usar o Datadog. Ele tem um teste de 14 dias, então não se pre
 
 Você pode ver detalhes de como fazer isso na [doc deles](https://docs.datadoghq.com/integrations/ruby/)
 E se ficar com dúvida, pode abrir um PR ou uma issue que a gente troca ideia :) 
+
+Objetivos:
+- Adicionar uma regra de validação na Task para que o title seja obrigatório
+- Adicionar um log debug quando a task for criada com sucesso
+- Adicionar um log warn quando a task não for criada com sucesso
+- Adicionar uma métrica indicando que a task não foi criada com sucesso com o nome `task.error`
+- Configurar os logs para aparecerem no Datadog
+- Configurar as métricas para aparecerem no Datadog
+- Configurar o APM para exibir o serviço rodando no Datadog e mostrando as requests feitas localmente
 </details>
 
 <details>
@@ -40,7 +49,7 @@ Eles tem uma [doc](https://render.com/docs/deploy-rails) bem completa que você 
 Depois disso vamos colocar alguns alertas no Datadog e tentar disparar eles via email, para termos uma noção de como seria isso: 
 - Alerta de numero de requests acima de 10 no último minuto
 - Alerta de numero de requests abaixo de 1 no último minuto
-- Alerta de error rata acima de 1% no último minuto
+- Alerta de error rate acima de 1% no último minuto
 
 Importante! Essa app usa o SQLite3, que é um simples banco em arquivo. Então os dados podem ser perdidos a qualquer momento que o arquivo for deletado.
 </details>
